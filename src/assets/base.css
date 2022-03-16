@@ -5,5 +5,27 @@
 }
 
 .news-item {
-  display: block;
+  display: grid;
+  grid-template-areas:
+  'icon link'
+  'icon details';
+  grid-template-columns: 3rem auto;
+}
+
+.news-item .icon {
+  align-self: center;
+  grid-area: icon;
+}
+
+.news-item .link {
+  font-size: large;
+  grid-area: link;
+}
+
+.news-item .details {
+  grid-area: details;
+}
+
+a:visited {
+  color: purple;
 }

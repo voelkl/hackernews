@@ -15,7 +15,7 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <h1 class="title is-1 mt-5">Hackernews</h1>
+    <h1 class="title is-1 mt-5 has-text-centered">Hackernews</h1>
     <StoriesOverview :stories="stories" />
   </div>
 </template>

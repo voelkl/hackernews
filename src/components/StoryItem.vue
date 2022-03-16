@@ -13,10 +13,7 @@ let newsItem: ref<object> = ref({});
 
 const getNewsItemFromApi = (item: number) => {
   api_service.getItem(item).then((data) => {
-    newsItem.value = {
-      ...data,
-      time: new Date(data.time * 1000),
-    };
+    newsItem.value = data;
   });
 };
 onMounted(() => {
@@ -28,13 +25,21 @@ onMounted(() => {
 
 <template>
   <div class="news-item card-content">
-    <a :href="newsItem.url" target="_blank" rel="noopener">
-      <h4>{{ newsItem.title }}</h4>
+    <img
+      class="mr-2 icon"
+      width="24"
+      :src="
+        'https://s2.googleusercontent.com/s2/favicons?domain_url=' +
+        newsItem.url
+      "
+    />
+    <a class="is_5 link" :href="newsItem.url" target="_blank" rel="noopener">
+      {{ newsItem.title }}
     </a>
-    <div class="">
-      <p v-if="newsItem">
+    <div class="details">
+      <p v-if="newsItem.title">
         {{ newsItem.score }} points by {{ newsItem.by }}
-        {{ moment(newsItem.time).fromNow() }}
+        {{ moment(newsItem.time * 1000).fromNow() }}
       </p>
       <p v-else>loading</p>
     </div>
