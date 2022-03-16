@@ -3,7 +3,7 @@ import { onMounted, ref } from "vue";
 import StoriesOverview from "./components/StoriesOverview.vue";
 import ApiService from "./api_service";
 
-let stories: ref<number[]> = ref([]);
+let stories: ref<object> = ref();
 
 onMounted(() => {
   const api_service = new ApiService();
@@ -14,6 +14,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>Mostrador</h1>
-  <StoriesOverview :stories="stories" />
+  <div class="container">
+    <h1 class="title is-1 mt-5">Hackernews</h1>
+    <StoriesOverview :stories="stories" />
+  </div>
 </template>

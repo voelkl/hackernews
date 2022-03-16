@@ -7,9 +7,9 @@ const props = defineProps<{
 </script>
 
 <template>
-  <h1>Stories</h1>
-  <ul class="list-disc hover:list-disc">
-    <li v-for="item in props.stories" :key="item">
+  <h2 class="title is-2">Stories</h2>
+  <ul>
+    <li class="card" v-for="item in props.stories" :key="item">
       <StoryItem :item="item" />
     </li>
   </ul>
